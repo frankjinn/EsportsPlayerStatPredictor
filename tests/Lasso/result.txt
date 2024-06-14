@@ -1,0 +1,88 @@
+Test sample results With Overtime
+
+ADR: Change (Increase in accuracy):  14.521544933504183% MSE
+mse: 199.4286237138692
+r2:  0.18140486632713393
+
+Weakness:
+- Lower min
+- Slightly larger 90 percentile, but much tighter 10th percentile. Resulting in lower STD.
+------------------------------------
+Assists: N/A
+mse: 3.418626961297946
+r2:  0.12169447771778386
+
+------------------------------------
+Deaths: Change (Increase in accuracy):  41.50153242841558% MSE
+mse: 6.2564669922689475
+r2:  0.28703157684015934
+
+Weakness:
+- Larger max
+- Slightly larger 90 percentile, but much tighter 10th percentile. Resulting in lower STD.
+------------------------------------
+fkDiff: N/A
+mse: 2.358202927723853
+r2:  0.11319209418872278
+
+------------------------------------
+flashAssists: N/A
+mse: 0.6994110261213623
+r2:  0.21240823214796767
+
+------------------------------------
+Headshots: Change (Increase in accuracy):  7.500609850014706% MSE
+mse: 5.6835237719599006
+r2:  0.23503592317425614
+
+Weakness:
+- Lower min
+
+Compared to External:
+- Slightly lower MSE on our model
+- Better precision in terms of STD
+- Min and max are larger than external predictions
+- Slightly larger 90 percentile, but much tighter 10th percentile. Resulting in lower STD.
+
+------------------------------------
+KAST: Change (Increase in accuracy):  31.228023963727026% MSE
+mse: 66.98334986513358
+r2:  0.33553798850870575
+
+Weakness:
+- Larger max, lower min
+------------------------------------
+Kills: Change (Increase in accuracy):  18.57036062114884% MSE
+mse: 13.260644793568243
+r2:  0.1621309287731696
+
+Weakness:
+- None, better in all metrics
+
+Compared to external
+- Slightly lower MSE on our model
+- Better precision in terms of STD
+- Min is lower than external predictions
+
+------------------------------------
+Overall:
+The model obtains better average predictions across the board. A side effect of this is that the
+extreme values may be shifted slightly, usually only on one side. This is a better model than the previous
+for getting closer predictions to the expected value, but may be slightly overfitted.
+
+
+
+------------------------------------
+Param:
+Alpha = 0.01
+model = Lasso()
+
+Coeff:
+norm coef: [('adr_last_2', 0.032425282228349325), ('std_adr_last_2', -0.01259655655776002), ('std_adr_last_3', -0.00712563806212043), ('adr_last_3', 0.040519105079621184), ('adr_last_5', -0.0), ('std_adr_last_10', -0.0), ('adr_last_3_win', -0.05328241550457981), ('std_adr_last_5', -0.00019788376433839018), ('std_adr_last_3_win', -0.002914962680673358), ('std_adr_last_10_win', -0.019254579324598918), ('adr_last_5_win', -0.17622077356128005), ('std_adr_last_2_win', 0.015437302656174256), ('adr_last_10', -0.03477222658017075), ('adr_last_10_win', 0.5056675949345797), ('std_adr_last_5_win', 0.0), ('adr_last_2_loss', -0.017768788134760995), ('adr_last_3_loss', -0.07409255278900718), ('std_adr_last_3_loss', 0.002163490103883103), ('std_adr_last_2_loss', 0.010694059271735038), ('adr_last_10_loss', 0.24896596725741468), ('adr_last_2_win', -0.01800158913855302), ('std_adr_last_10_loss', 0.027857183769263903), ('adr_last_2_matchup', -0.65002807034568), ('std_adr_last_5_loss', -0.018508422768786014), ('adr_last_5_matchup', 1.241599278234217), ('std_adr_last_3_matchup', -0.01667261685709432), ('std_adr_last_5_matchup', -0.023892187465834838)]
+norm coef: [('assist_last_2', -0.007040854423666436), ('std_assist_last_2', 0.0071930485487688425), ('std_assist_last_3', -0.005220607178245571), ('assist_last_3', 0.014068441397869322), ('assist_last_5', -0.037148949397744796), ('std_assist_last_10', 0.013240236119552492), ('assist_last_3_win', -0.024936838253890373), ('std_assist_last_5', 0.013428414445679496), ('std_assist_last_3_win', -0.020269926958255004), ('std_assist_last_10_win', 0.015713090360856854), ('assist_last_5_win', -0.21013432416103112), ('std_assist_last_2_win', -0.01691459257490835), ('assist_last_10', -0.0), ('assist_last_10_win', 0.5023868780195246), ('std_assist_last_5_win', 0.0007555543908401028), ('assist_last_2_loss', -0.019119397227716214), ('assist_last_3_loss', -0.04584919786343485), ('std_assist_last_3_loss', 0.0), ('std_assist_last_2_loss', -0.0005207688787606146), ('assist_last_10_loss', 0.20624168662255757), ('assist_last_2_win', -0.03890775811066004), ('std_assist_last_10_loss', 0.0029400704823713047), ('assist_last_2_matchup', -0.757706543103642), ('std_assist_last_5_loss', -0.0026881786668924157), ('assist_last_5_matchup', 1.4959176386701751), ('std_assist_last_3_matchup', 0.03198100595536974), ('std_assist_last_5_matchup', -0.11740812821471756)]
+norm coef: [('deaths_last_2', -0.0), ('std_deaths_last_2', 0.004599140148362726), ('std_deaths_last_3', -0.0), ('deaths_last_3', 0.0), ('deaths_last_5', -0.0), ('std_deaths_last_10', 0.0015994673648671515), ('deaths_last_3_win', -0.0), ('std_deaths_last_5', 0.011189106233647834), ('std_deaths_last_3_win', 0.0), ('std_deaths_last_10_win', 0.0), ('deaths_last_5_win', -0.0), ('std_deaths_last_2_win', 0.0), ('deaths_last_10', 0.0), ('deaths_last_10_win', 0.12544495786958607), ('std_deaths_last_5_win', 0.007867229503091266), ('deaths_last_2_loss', -0.0), ('deaths_last_3_loss', -0.0005969364078429656), ('std_deaths_last_3_loss', 0.0), ('std_deaths_last_2_loss', -0.0), ('deaths_last_10_loss', 0.08508389678196918), ('deaths_last_2_win', -0.020505609789736114), ('std_deaths_last_10_loss', -0.0), ('deaths_last_2_matchup', -0.7338576273999917), ('std_deaths_last_5_loss', 0.0015766504848243833), ('deaths_last_5_matchup', 1.4904037061249193), ('std_deaths_last_3_matchup', 0.0), ('std_deaths_last_5_matchup', 0.027196019086302703)]
+norm coef: [('fkdiff_last_2', -0.0), ('std_fkdiff_last_2', -0.0), ('std_fkdiff_last_3', -0.0), ('fkdiff_last_3', -0.0), ('fkdiff_last_5', -0.0), ('std_fkdiff_last_10', -0.014373104269596204), ('fkdiff_last_3_win', -0.03749285378481299), ('std_fkdiff_last_5', -0.0), ('std_fkdiff_last_3_win', 0.0), ('std_fkdiff_last_10_win', -0.009400567342325188), ('fkdiff_last_5_win', -0.0), ('std_fkdiff_last_2_win', -0.0), ('fkdiff_last_10', -0.0), ('fkdiff_last_10_win', 0.2015637578480892), ('std_fkdiff_last_5_win', -0.0), ('fkdiff_last_2_loss', -0.0), ('fkdiff_last_3_loss', -0.022555553892490757), ('std_fkdiff_last_3_loss', -0.0), ('std_fkdiff_last_2_loss', -0.014261206767965119), ('fkdiff_last_10_loss', 0.18010074699132658), ('fkdiff_last_2_win', -0.0), ('std_fkdiff_last_10_loss', -0.0), ('fkdiff_last_2_matchup', -0.6960751566252227), ('std_fkdiff_last_5_loss', -0.0), ('fkdiff_last_5_matchup', 1.412493937842997), ('std_fkdiff_last_3_matchup', -0.0), ('std_fkdiff_last_5_matchup', -0.0)]
+norm coef: [('flashAssists_last_2', -0.012189275180337715), ('std_flashAssists_last_2', 0.0019662429064559437), ('std_flashAssists_last_3', 0.0), ('flashAssists_last_3', 0.0), ('flashAssists_last_5', -0.0), ('std_flashAssists_last_10', 0.0), ('flashAssists_last_3_win', -0.0), ('std_flashAssists_last_5', -0.0), ('std_flashAssists_last_3_win', -0.009234556024984426), ('std_flashAssists_last_10_win', 0.03975545127828544), ('flashAssists_last_5_win', -0.2547361018944038), ('std_flashAssists_last_2_win', -0.021728817761278246), ('flashAssists_last_10', 0.10020871142979182), ('flashAssists_last_10_win', 0.6058491343590758), ('std_flashAssists_last_5_win', -0.00923587342049516), ('flashAssists_last_2_loss', -0.03007212013753423), ('flashAssists_last_3_loss', -0.0857597555341725), ('std_flashAssists_last_3_loss', -0.005234992770421798), ('std_flashAssists_last_2_loss', 0.013909804652376812), ('flashAssists_last_10_loss', 0.32041950723091), ('flashAssists_last_2_win', -0.044515042923672345), ('std_flashAssists_last_10_loss', 0.031847202452725015), ('flashAssists_last_2_matchup', -0.426760411452397), ('std_flashAssists_last_5_loss', -0.0), ('flashAssists_last_5_matchup', 0.9546809662628766), ('std_flashAssists_last_3_matchup', -0.0), ('std_flashAssists_last_5_matchup', -0.16917007347280022)]
+norm coef: [('headshots_last_2', 0.013214043309446402), ('std_headshots_last_2', -0.008328588819684226), ('std_headshots_last_3', -0.00049415561239192), ('headshots_last_3', 0.03242205723659274), ('headshots_last_5', 0.0005081262381273389), ('std_headshots_last_10', 0.018027175354769047), ('headshots_last_3_win', -0.10015861020535527), ('std_headshots_last_5', 0.0016655326375860909), ('std_headshots_last_3_win', 0.03135994609959679), ('std_headshots_last_10_win', -0.0012915334843915252), ('headshots_last_5_win', -0.2257226265222062), ('std_headshots_last_2_win', -0.0006307421630524455), ('headshots_last_10', 0.05681045471856204), ('headshots_last_10_win', 0.6496282838075604), ('std_headshots_last_5_win', -0.041838045265124434), ('headshots_last_2_loss', -0.06564180971844132), ('headshots_last_3_loss', -0.09486383686893896), ('std_headshots_last_3_loss', 0.013365566546452025), ('std_headshots_last_2_loss', 0.007351671502363763), ('headshots_last_10_loss', 0.3239080476034309), ('headshots_last_2_win', -0.01611511063655019), ('std_headshots_last_10_loss', 0.04134338851451225), ('headshots_last_2_matchup', -0.4961706729363101), ('std_headshots_last_5_loss', -0.02705340182314717), ('headshots_last_5_matchup', 0.932384005376654), ('std_headshots_last_3_matchup', 0.04220942036611825), ('std_headshots_last_5_matchup', -0.08588858525617825)]
+norm coef: [('kast_last_2', -0.0), ('std_kast_last_2', 0.011700843915560548), ('std_kast_last_3', -0.0), ('kast_last_3', 0.029694593165122348), ('kast_last_5', -0.0), ('std_kast_last_10', -0.01239326482470321), ('kast_last_3_win', -0.003987675032080805), ('std_kast_last_5', -0.013228343684741429), ('std_kast_last_3_win', 0.00833143499782322), ('std_kast_last_10_win', -5.234225309608754e-05), ('kast_last_5_win', -0.09889104325453879), ('std_kast_last_2_win', -0.007159993521108358), ('kast_last_10', -0.05106106329832932), ('kast_last_10_win', 0.19280035349778774), ('std_kast_last_5_win', -0.0021218997546355693), ('kast_last_2_loss', -0.0), ('kast_last_3_loss', -0.034506887919841016), ('std_kast_last_3_loss', 0.001757693768426902), ('std_kast_last_2_loss', -0.01244676591467786), ('kast_last_10_loss', 0.08559409880704684), ('kast_last_2_win', -0.0), ('std_kast_last_10_loss', -0.0), ('kast_last_2_matchup', -0.9324784400201893), ('std_kast_last_5_loss', 0.007737360950632218), ('kast_last_5_matchup', 1.8060953906433), ('std_kast_last_3_matchup', -0.042891036128237636), ('std_kast_last_5_matchup', 0.06750698586047968)]
+norm coef: [('kills_last_2', 0.01207807091224782), ('std_kills_last_2', -0.0), ('std_kills_last_3', 0.0), ('kills_last_3', 0.0), ('kills_last_5', -0.0), ('std_kills_last_10', 0.012500308689115851), ('kills_last_3_win', -0.03692755221079944), ('std_kills_last_5', -0.0), ('std_kills_last_3_win', 0.000107181046443094), ('std_kills_last_10_win', -0.003361205523235719), ('kills_last_5_win', -0.06263567854166188), ('std_kills_last_2_win', 0.0), ('kills_last_10', -0.0), ('kills_last_10_win', 0.2894505730011422), ('std_kills_last_5_win', -0.0007860821722341768), ('kills_last_2_loss', -0.015744917920552562), ('kills_last_3_loss', -0.015829517676126028), ('std_kills_last_3_loss', 0.0), ('std_kills_last_2_loss', -0.0), ('kills_last_10_loss', 0.14827029466139377), ('kills_last_2_win', -0.0), ('std_kills_last_10_loss', 0.022233554171909562), ('kills_last_2_matchup', -0.6821386630634485), ('std_kills_last_5_loss', -0.011345831673881767), ('kills_last_5_matchup', 1.3619268822229706), ('std_kills_last_3_matchup', -0.0), ('std_kills_last_5_matchup', -0.0177974159232828)]
