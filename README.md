@@ -1,6 +1,6 @@
 # Esports Player Stat Predictor
 ## Description
-This model predicts a player's stat (Kills, Deaths, etc.) based on historical data using linear regression. Currently tuned for CS2, this model does better or
+This code is a small work sample from Rimble. This model predicts a player's stat (Kills, Deaths, etc.) based on historical data using linear regression. Currently tuned for CS2, this model does better or
 at least equal to predictions made by commercial online esports betting companies in terms of MSE. Usually, this model outperforms 
 commercial online esports predictions in terms of the precision of the prediction, usually having a smaller STD error. 
 The relevant files are stored in pickled data frames in the cache.
